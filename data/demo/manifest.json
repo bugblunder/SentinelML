@@ -1,0 +1,11 @@
+{
+  "description": "Entirely generated synthetic cloud audit events. No uploaded log records are included.",
+  "generator": "sentinel/demo.py",
+  "seed": 42,
+  "days": 30,
+  "routine_events_per_day": 240,
+  "rows": 7872,
+  "sha256": "1162aa629e1246415d489b59754a504252ce99538f6e5c6a06f8f2a5420c182c",
+  "scenario_labels": "0=generated benign event; 1=event injected into a synthetic anomaly scenario",
+  "limitations": "Scenario labels encode generator intent, not expert adjudication. No public external benchmark was used."
+}

@@ -1,0 +1,506 @@
+[
+  {
+    "dataset": "synthetic",
+    "evaluation_unit": "event (not independent attack incident)",
+    "split_method": "60/20/20 of elapsed time; train-only feature fitting; fixed calibration quantiles",
+    "test_rows": 1891,
+    "test_positive_rows": 372,
+    "test_start": "2026-01-24T23:56:28+00:00",
+    "test_end": "2026-01-30T23:38:48+00:00",
+    "test_sha256": "241f7986b96b8aff9acca3479f7247f95dd19dc81c95ba78b6d76573dc44d626",
+    "model": {
+      "format_version": 2,
+      "config": {
+        "seed": 11,
+        "trees": 200,
+        "target_alert_rate": 0.03,
+        "pca_variance": 0.9
+      },
+      "train_rows": 4464,
+      "calibration_rows": 1517,
+      "train_start": "2026-01-01T00:18:05+00:00",
+      "train_end": "2026-01-18T23:20:48+00:00",
+      "calibration_start": "2026-01-19T01:02:21+00:00",
+      "calibration_end": "2026-01-24T23:19:51+00:00",
+      "train_sha256": "9066e52bd2b4eb168ba52b19991b1b99eea9c5a61f4682aa09714ab67eb8cc3d",
+      "calibration_sha256": "7ba0f2f28856e27f6a8bc3b3d20942fcf372a07149a1bbd047449b145bd015b7",
+      "feature_count": 18,
+      "pca_components": 6,
+      "iso_threshold": 0.6465244760507212,
+      "pca_threshold": 0.2647540976670418,
+      "python": "3.12.14",
+      "sklearn": "1.8.0",
+      "numpy": "2.3.5",
+      "pandas": "2.2.3",
+      "calibration_iso_alert_rate": 0.02900461437046803,
+      "calibration_pca_alert_rate": 0.02702702702702703,
+      "model_id": "34aa7fa7490e"
+    },
+    "metrics": {
+      "Isolation Forest": {
+        "precision": 0.7619047619047619,
+        "recall": 0.3870967741935484,
+        "f1": 0.5133689839572193,
+        "false_positive_rate": 0.029624753127057275,
+        "average_precision": 0.7871278112018681,
+        "roc_auc": 0.9259345777853285,
+        "true_positive": 144,
+        "false_positive": 45,
+        "true_negative": 1474,
+        "false_negative": 228,
+        "alerts": 189
+      },
+      "PCA reconstruction": {
+        "precision": 0.8892405063291139,
+        "recall": 0.7553763440860215,
+        "f1": 0.8168604651162791,
+        "false_positive_rate": 0.02304147465437788,
+        "average_precision": 0.8832797514060637,
+        "roc_auc": 0.9471019417132097,
+        "true_positive": 281,
+        "false_positive": 35,
+        "true_negative": 1484,
+        "false_negative": 91,
+        "alerts": 316
+      },
+      "Rules only": {
+        "precision": 0.9923371647509579,
+        "recall": 0.696236559139785,
+        "f1": 0.8183254344391785,
+        "false_positive_rate": 0.0013166556945358788,
+        "average_precision": 0.7484071023857016,
+        "roc_auc": 0.8473254546355483,
+        "true_positive": 259,
+        "false_positive": 2,
+        "true_negative": 1517,
+        "false_negative": 113,
+        "alerts": 261
+      },
+      "Hybrid union": {
+        "precision": 0.782967032967033,
+        "recall": 0.7661290322580645,
+        "f1": 0.7744565217391305,
+        "false_positive_rate": 0.05200789993416721,
+        "average_precision": 0.8069212602285304,
+        "roc_auc": 0.8763086920512222,
+        "true_positive": 285,
+        "false_positive": 79,
+        "true_negative": 1440,
+        "false_negative": 87,
+        "alerts": 364
+      }
+    },
+    "scenarios": [
+      {
+        "scenario": "benign_ip_change",
+        "events": 30,
+        "alerts": 19,
+        "recall": null,
+        "false_positive_rate": 0.6333333333333333
+      },
+      {
+        "scenario": "credential_abuse",
+        "events": 96,
+        "alerts": 96,
+        "recall": 1.0,
+        "false_positive_rate": null
+      },
+      {
+        "scenario": "low_and_slow_access",
+        "events": 36,
+        "alerts": 2,
+        "recall": 0.05555555555555555,
+        "false_positive_rate": null
+      },
+      {
+        "scenario": "reconnaissance_burst",
+        "events": 192,
+        "alerts": 139,
+        "recall": 0.7239583333333334,
+        "false_positive_rate": null
+      },
+      {
+        "scenario": "routine",
+        "events": 1441,
+        "alerts": 52,
+        "recall": null,
+        "false_positive_rate": 0.03608605135322693
+      },
+      {
+        "scenario": "scheduled_inventory",
+        "events": 48,
+        "alerts": 8,
+        "recall": null,
+        "false_positive_rate": 0.16666666666666666
+      },
+      {
+        "scenario": "unusual_policy_change",
+        "events": 48,
+        "alerts": 48,
+        "recall": 1.0,
+        "false_positive_rate": null
+      }
+    ],
+    "diagnostics": {
+      "quality": {
+        "rows": 1891,
+        "duplicate_events": 0,
+        "missing_optional": [],
+        "unknown_principals": 0,
+        "warnings": []
+      },
+      "model_id": "34aa7fa7490e",
+      "new_principal_rate": 0.0,
+      "new_ip_rate": 0.09201480698043363,
+      "alert_rate": 0.19249074563722898,
+      "temporal_overlap": false
+    },
+    "timing": {
+      "training_seconds": 0.4849,
+      "scoring_seconds": 0.2094
+    },
+    "limitations": [
+      "Synthetic scenarios are designed alongside the rules; results are an engineering check, not external validity.",
+      "Correlated events in one scenario are not independent samples; event recall is not incident recall.",
+      "The per-model calibration alert target is not a guaranteed test false-positive rate or hybrid alert rate.",
+      "Hybrid average precision uses the discrete review-priority score, not a probability.",
+      "Low-and-slow access is intentionally difficult to distinguish from normal access with these fields."
+    ]
+  },
+  {
+    "dataset": "synthetic",
+    "evaluation_unit": "event (not independent attack incident)",
+    "split_method": "60/20/20 of elapsed time; train-only feature fitting; fixed calibration quantiles",
+    "test_rows": 1892,
+    "test_positive_rows": 372,
+    "test_start": "2026-01-24T22:46:15+00:00",
+    "test_end": "2026-01-30T21:21:08+00:00",
+    "test_sha256": "0f29a40624bb9df4f1077ea2f428fad1a66ebc8e8f2adccf40c6b5ba4379768f",
+    "model": {
+      "format_version": 2,
+      "config": {
+        "seed": 42,
+        "trees": 200,
+        "target_alert_rate": 0.03,
+        "pca_variance": 0.9
+      },
+      "train_rows": 4463,
+      "calibration_rows": 1517,
+      "train_start": "2026-01-01T00:33:12+00:00",
+      "train_end": "2026-01-18T19:43:25+00:00",
+      "calibration_start": "2026-01-18T23:16:47+00:00",
+      "calibration_end": "2026-01-24T18:52:32+00:00",
+      "train_sha256": "3df4eff6ab864c8971062efe7bc86491134541107daa5d27d08c983116ee6b43",
+      "calibration_sha256": "87a9a8f016c177c582c4855f2e50290223d192d6948c539019f0c2fb77644a60",
+      "feature_count": 18,
+      "pca_components": 7,
+      "iso_threshold": 0.6513677221297607,
+      "pca_threshold": 0.0847763642632481,
+      "python": "3.12.14",
+      "sklearn": "1.8.0",
+      "numpy": "2.3.5",
+      "pandas": "2.2.3",
+      "calibration_iso_alert_rate": 0.02966381015161503,
+      "calibration_pca_alert_rate": 0.02966381015161503,
+      "model_id": "64ea275b97c6"
+    },
+    "metrics": {
+      "Isolation Forest": {
+        "precision": 0.7422680412371134,
+        "recall": 0.3870967741935484,
+        "f1": 0.508833922261484,
+        "false_positive_rate": 0.03289473684210526,
+        "average_precision": 0.7678346926922259,
+        "roc_auc": 0.9196404569892473,
+        "true_positive": 144,
+        "false_positive": 50,
+        "true_negative": 1470,
+        "false_negative": 228,
+        "alerts": 194
+      },
+      "PCA reconstruction": {
+        "precision": 0.8369565217391305,
+        "recall": 0.8279569892473119,
+        "f1": 0.8324324324324325,
+        "false_positive_rate": 0.039473684210526314,
+        "average_precision": 0.8201541184732712,
+        "roc_auc": 0.9015244765138654,
+        "true_positive": 308,
+        "false_positive": 60,
+        "true_negative": 1460,
+        "false_negative": 64,
+        "alerts": 368
+      },
+      "Rules only": {
+        "precision": 0.9923954372623575,
+        "recall": 0.7016129032258065,
+        "f1": 0.8220472440944881,
+        "false_positive_rate": 0.0013157894736842105,
+        "average_precision": 0.7537318250245348,
+        "roc_auc": 0.8499840831918507,
+        "true_positive": 261,
+        "false_positive": 2,
+        "true_negative": 1518,
+        "false_negative": 111,
+        "alerts": 263
+      },
+      "Hybrid union": {
+        "precision": 0.7457627118644068,
+        "recall": 0.8279569892473119,
+        "f1": 0.7847133757961784,
+        "false_positive_rate": 0.06907894736842106,
+        "average_precision": 0.8397586227649668,
+        "roc_auc": 0.9050465124504812,
+        "true_positive": 308,
+        "false_positive": 105,
+        "true_negative": 1415,
+        "false_negative": 64,
+        "alerts": 413
+      }
+    },
+    "scenarios": [
+      {
+        "scenario": "benign_ip_change",
+        "events": 30,
+        "alerts": 12,
+        "recall": null,
+        "false_positive_rate": 0.4
+      },
+      {
+        "scenario": "credential_abuse",
+        "events": 96,
+        "alerts": 96,
+        "recall": 1.0,
+        "false_positive_rate": null
+      },
+      {
+        "scenario": "low_and_slow_access",
+        "events": 36,
+        "alerts": 1,
+        "recall": 0.027777777777777776,
+        "false_positive_rate": null
+      },
+      {
+        "scenario": "reconnaissance_burst",
+        "events": 192,
+        "alerts": 163,
+        "recall": 0.8489583333333334,
+        "false_positive_rate": null
+      },
+      {
+        "scenario": "routine",
+        "events": 1442,
+        "alerts": 86,
+        "recall": null,
+        "false_positive_rate": 0.059639389736477116
+      },
+      {
+        "scenario": "scheduled_inventory",
+        "events": 48,
+        "alerts": 7,
+        "recall": null,
+        "false_positive_rate": 0.14583333333333334
+      },
+      {
+        "scenario": "unusual_policy_change",
+        "events": 48,
+        "alerts": 48,
+        "recall": 1.0,
+        "false_positive_rate": null
+      }
+    ],
+    "diagnostics": {
+      "quality": {
+        "rows": 1892,
+        "duplicate_events": 0,
+        "missing_optional": [],
+        "unknown_principals": 0,
+        "warnings": []
+      },
+      "model_id": "64ea275b97c6",
+      "new_principal_rate": 0.0,
+      "new_ip_rate": 0.0919661733615222,
+      "alert_rate": 0.2182875264270613,
+      "temporal_overlap": false
+    },
+    "timing": {
+      "training_seconds": 0.4514,
+      "scoring_seconds": 0.2112
+    },
+    "limitations": [
+      "Synthetic scenarios are designed alongside the rules; results are an engineering check, not external validity.",
+      "Correlated events in one scenario are not independent samples; event recall is not incident recall.",
+      "The per-model calibration alert target is not a guaranteed test false-positive rate or hybrid alert rate.",
+      "Hybrid average precision uses the discrete review-priority score, not a probability.",
+      "Low-and-slow access is intentionally difficult to distinguish from normal access with these fields."
+    ]
+  },
+  {
+    "dataset": "synthetic",
+    "evaluation_unit": "event (not independent attack incident)",
+    "split_method": "60/20/20 of elapsed time; train-only feature fitting; fixed calibration quantiles",
+    "test_rows": 1890,
+    "test_positive_rows": 372,
+    "test_start": "2026-01-25T00:21:02+00:00",
+    "test_end": "2026-01-30T23:31:36+00:00",
+    "test_sha256": "85d55491ed5a98b2f9b1246cd53d693864c7141e18818c17077748fd896f9553",
+    "model": {
+      "format_version": 2,
+      "config": {
+        "seed": 73,
+        "trees": 200,
+        "target_alert_rate": 0.03,
+        "pca_variance": 0.9
+      },
+      "train_rows": 4464,
+      "calibration_rows": 1518,
+      "train_start": "2026-01-01T00:13:21+00:00",
+      "train_end": "2026-01-18T22:13:26+00:00",
+      "calibration_start": "2026-01-19T02:00:00+00:00",
+      "calibration_end": "2026-01-24T23:16:23+00:00",
+      "train_sha256": "eb5d9f1a4be9180cb9f13c1944d5701be6d50b2a3a74306ea3b225bd133563dd",
+      "calibration_sha256": "e86de4976a57951cc54997944c4fe3c4d85f0f2a75c6dbb0b6011b600f3c2b13",
+      "feature_count": 18,
+      "pca_components": 6,
+      "iso_threshold": 0.6616730181253996,
+      "pca_threshold": 0.2223425188613502,
+      "python": "3.12.14",
+      "sklearn": "1.8.0",
+      "numpy": "2.3.5",
+      "pandas": "2.2.3",
+      "calibration_iso_alert_rate": 0.029644268774703556,
+      "calibration_pca_alert_rate": 0.029644268774703556,
+      "model_id": "c8606f212b99"
+    },
+    "metrics": {
+      "Isolation Forest": {
+        "precision": 0.7783783783783784,
+        "recall": 0.3870967741935484,
+        "f1": 0.5170556552962298,
+        "false_positive_rate": 0.027009222661396576,
+        "average_precision": 0.782154429630421,
+        "roc_auc": 0.9246488376046581,
+        "true_positive": 144,
+        "false_positive": 41,
+        "true_negative": 1477,
+        "false_negative": 228,
+        "alerts": 185
+      },
+      "PCA reconstruction": {
+        "precision": 0.8232044198895028,
+        "recall": 0.8010752688172043,
+        "f1": 0.8119891008174387,
+        "false_positive_rate": 0.04216073781291173,
+        "average_precision": 0.8101228297993284,
+        "roc_auc": 0.9394692011276865,
+        "true_positive": 298,
+        "false_positive": 64,
+        "true_negative": 1454,
+        "false_negative": 74,
+        "alerts": 362
+      },
+      "Rules only": {
+        "precision": 0.9735849056603774,
+        "recall": 0.6935483870967742,
+        "f1": 0.8100470957613815,
+        "false_positive_rate": 0.00461133069828722,
+        "average_precision": 0.7332290417069895,
+        "roc_auc": 0.8440435207616133,
+        "true_positive": 258,
+        "false_positive": 7,
+        "true_negative": 1511,
+        "false_negative": 114,
+        "alerts": 265
+      },
+      "Hybrid union": {
+        "precision": 0.7487437185929648,
+        "recall": 0.8010752688172043,
+        "f1": 0.7740259740259741,
+        "false_positive_rate": 0.06587615283267458,
+        "average_precision": 0.8139800896638282,
+        "roc_auc": 0.8903250598552142,
+        "true_positive": 298,
+        "false_positive": 100,
+        "true_negative": 1418,
+        "false_negative": 74,
+        "alerts": 398
+      }
+    },
+    "scenarios": [
+      {
+        "scenario": "benign_ip_change",
+        "events": 30,
+        "alerts": 25,
+        "recall": null,
+        "false_positive_rate": 0.8333333333333334
+      },
+      {
+        "scenario": "credential_abuse",
+        "events": 96,
+        "alerts": 96,
+        "recall": 1.0,
+        "false_positive_rate": null
+      },
+      {
+        "scenario": "low_and_slow_access",
+        "events": 36,
+        "alerts": 4,
+        "recall": 0.1111111111111111,
+        "false_positive_rate": null
+      },
+      {
+        "scenario": "reconnaissance_burst",
+        "events": 192,
+        "alerts": 150,
+        "recall": 0.78125,
+        "false_positive_rate": null
+      },
+      {
+        "scenario": "routine",
+        "events": 1440,
+        "alerts": 68,
+        "recall": null,
+        "false_positive_rate": 0.04722222222222222
+      },
+      {
+        "scenario": "scheduled_inventory",
+        "events": 48,
+        "alerts": 7,
+        "recall": null,
+        "false_positive_rate": 0.14583333333333334
+      },
+      {
+        "scenario": "unusual_policy_change",
+        "events": 48,
+        "alerts": 48,
+        "recall": 1.0,
+        "false_positive_rate": null
+      }
+    ],
+    "diagnostics": {
+      "quality": {
+        "rows": 1890,
+        "duplicate_events": 0,
+        "missing_optional": [],
+        "unknown_principals": 0,
+        "warnings": []
+      },
+      "model_id": "c8606f212b99",
+      "new_principal_rate": 0.0,
+      "new_ip_rate": 0.09206349206349207,
+      "alert_rate": 0.2105820105820106,
+      "temporal_overlap": false
+    },
+    "timing": {
+      "training_seconds": 0.4338,
+      "scoring_seconds": 0.2112
+    },
+    "limitations": [
+      "Synthetic scenarios are designed alongside the rules; results are an engineering check, not external validity.",
+      "Correlated events in one scenario are not independent samples; event recall is not incident recall.",
+      "The per-model calibration alert target is not a guaranteed test false-positive rate or hybrid alert rate.",
+      "Hybrid average precision uses the discrete review-priority score, not a probability.",
+      "Low-and-slow access is intentionally difficult to distinguish from normal access with these fields."
+    ]
+  }
+]
