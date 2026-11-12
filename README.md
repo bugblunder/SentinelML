@@ -166,4 +166,4 @@ The app is intended for local, trusted single-user investigation. Before any pub
 
 Version 2 preserves the audit-log investigation concept and Streamlit interface while replacing the duplicated inference paths, upload-relative thresholds, stale cache behavior and incomplete reporting workflow. The TensorFlow autoencoder is replaced by a lightweight PCA reconstruction baseline. Unvalidated supervised models and the remote chatbot are removed from the supported feature set. Original log files, model binaries, secrets and accumulated reports are not redistributed. See [the detailed audit](docs/PROJECT_AUDIT.md).
 
-For a master's application, start with [the résumé and interview guide](docs/MASTERS_APPLICATION.md). Use only claims you can demonstrate and explain yourself.
+
